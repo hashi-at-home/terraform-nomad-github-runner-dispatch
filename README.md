@@ -74,6 +74,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [cloudflare_worker.runner_dispatch](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/worker) | resource |
 | [cloudflare_accounts.mine](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/accounts) | data source |
 | [cloudflare_queues.all](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/queues) | data source |
 | [nomad_namespace.chardm](https://registry.terraform.io/providers/hashicorp/nomad/latest/docs/data-sources/namespace) | data source |

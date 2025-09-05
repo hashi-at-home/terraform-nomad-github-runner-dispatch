@@ -15,7 +15,27 @@ data "nomad_namespace" "chardm" {
 }
 
 # Create dispatch token
+
 #
 # Add dispatch token to cloudflare secrets
 #
 # Create dispatch worker bound to queue and secret
+resource "cloudflare_worker" "runner_dispatch" {
+  account_id = data.cloudflare_accounts.mine.result[0].id
+  name       = "nomad-github-runner-dispatch"
+  logpush    = true
+  observability = {
+    enabled            = true
+    head_sampling_rate = 1
+    logs = {
+      enabled            = true
+      head_sampling_rate = 1
+      invocation_logs    = true
+    }
+
+    subdomain = {
+      enabled          = false
+      previews_enabled = false
+    }
+  }
+}
