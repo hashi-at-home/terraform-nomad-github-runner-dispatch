@@ -7,7 +7,7 @@ terraform {
     }
     nomad = {
       source  = "hashicorp/nomad"
-      version = "~> 1.0"
+      version = "~> 2.0"
     }
     # If your tokens are in vault
     vault = {
