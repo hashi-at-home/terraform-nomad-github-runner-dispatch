@@ -53,11 +53,18 @@ examples themselves
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >1.2.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.13 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 5.0 |
+| <a name="requirement_nomad"></a> [nomad](#requirement\_nomad) | ~> 1.0 |
+| <a name="requirement_vault"></a> [vault](#requirement\_vault) | ~> 3.0 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 5.9.0 |
+| <a name="provider_nomad"></a> [nomad](#provider\_nomad) | 1.4.20 |
+| <a name="provider_vault"></a> [vault](#provider\_vault) | 3.25.0 |
 
 ## Modules
 
@@ -65,13 +72,17 @@ No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [cloudflare_accounts.mine](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/accounts) | data source |
+| [cloudflare_queues.all](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/queues) | data source |
+| [nomad_namespace.chardm](https://registry.terraform.io/providers/hashicorp/nomad/latest/docs/data-sources/namespace) | data source |
+| [vault_kv_secret_v2.cloudflare](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/kv_secret_v2) | data source |
+| [vault_nomad_access_token.nomad](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/nomad_access_token) | data source |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_dummy"></a> [dummy](#input\_dummy) | dummy variable | `string` | n/a | yes |
+No inputs.
 
 ## Outputs
 
