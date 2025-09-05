@@ -39,3 +39,27 @@ resource "cloudflare_worker" "runner_dispatch" {
     }
   }
 }
+
+locals {
+  queue_id = [for queue in data.cloudflare_queues.all.result : queue.queue_name == "brucellino-ci-build-queued" ? queue.queue_id : ""]
+}
+
+resource "cloudflare_worker_version" "runner_dispatch" {
+  account_id = data.cloudflare_accounts.mine.result[0].id
+  worker_id  = cloudflare_worker.runner_dispatch.id
+  bindings = [{
+    name = "CI_BUILD_QUEUED_Q"
+    type = "queue"
+    # queue_name = join("", local.queue_id)
+    queue_name = "brucellino-ci-build-queued"
+  }]
+  compatibility_flags = ["nodejs_compat"]
+  compatibility_date  = "2025-09-05"
+  main_module         = "index.mjs"
+  modules = [{
+    content_type = "application/javascript+module"
+    content_file = "worker-scripts/nomad-github-runner-dispatch/index.mjs"
+    name         = "index.mjs"
+  }]
+
+}
