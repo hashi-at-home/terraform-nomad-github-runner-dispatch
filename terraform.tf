@@ -12,7 +12,7 @@ terraform {
     # If your tokens are in vault
     vault = {
       source  = "hashicorp/vault"
-      version = "~> 3.0"
+      version = "~> 5.2"
     }
   }
 
